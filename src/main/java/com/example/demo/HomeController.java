@@ -42,20 +42,20 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/detail/ {id}")
+    @RequestMapping("/detail/{id}")
     public String showMessage(@PathVariable("id") long id, Model model) {
         model.addAttribute("message", messageRepository.findById(id).get());
         return "show";
 
     }
 
-    @RequestMapping("/update/ {id}")
+    @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model model) {
         model.addAttribute("message", messageRepository.findById(id).get());
         return "messageform";
     }
 
-    @RequestMapping("/delete/ {id}")
+    @RequestMapping("/delete/{id}")
     public String delMessage(@PathVariable("id") long id) {
         messageRepository.deleteById(id);
         return "redirect:/";
